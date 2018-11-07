@@ -3,14 +3,22 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+    /*
+    *Author Brian Gomez Puentes
+    *Programa que implementa js google charts con grafica PieChart
+    */
 
+      //Carga las librerias correspondientes de google
       google.charts.load('visualization','1.0', {'packages':['corechart']});
-
+      //Toma una grafica predeterminada cuando se abre la pagina
       google.charts.setOnLoadCallback(dibujarGrafica);
 
+      /**
+      *Meotdo que dibuja la grafica original con datos previamente propuestos
+      */
       function dibujarGrafica() {
-        var data = new google.visualization.DataTable();
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        let data = new google.visualization.DataTable();
+        let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         data.addColumn('string', 'Dato');
         data.addColumn('number', 'Cantidad');
         data.addRows([
@@ -24,9 +32,12 @@
         chart.draw(data, options);
       }
 
+      /**
+      *Metodo que cambia los valores de la grafica con otros datos previamente propuestos
+      */
       function cambiarValores(){
-        var data = new google.visualization.DataTable();
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        let data = new google.visualization.DataTable();
+        let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         data.addColumn('string', 'Dato');
         data.addColumn('number', 'Cantidad');
         data.addRows([
@@ -44,7 +55,7 @@
   <body>
     <div id="chart_div"></div>
     <form>
-      <input type="button" value="Cambiar valores" onclick="cambiarValores()" >
+      <input type="button" value="Cambiar valores" onclick="cambiarValores()" > //Boton que ejecuta el cambio de los valores
     </form>
   </body>
 </html>
